@@ -1,0 +1,12 @@
+bin/**
+!bin/*.txt
+
+obj/**
+!obj/*.txt
+!obj/font
+!obj/gfx
+!obj/music
+
+!obj/font/*.txt
+!obj/gfx/*.txt
+!obj/music/*.txt

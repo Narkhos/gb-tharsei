@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "carnet.h": "c",
+        "tools.h": "c",
+        "eruption.h": "c",
+        "inspecter.h": "c",
+        "abattis.h": "c",
+        "mort.h": "c",
+        "the_end.h": "c",
+        "egouts_ok.h": "c",
+        "labyrinthe.h": "c",
+        "erreur.h": "c",
+        "credits.h": "c",
+        "force.h": "c"
+    }
+}
