@@ -24,10 +24,10 @@ void draw_fuite(unsigned int x, unsigned int y) {
 UINT8 state_fuite() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
 	if (carnet) {
-		text_print_string_win(1, 2, "BRANDIR MON CARNET");
+		text_print_string_win(1, 2, "BRANDIR MON INSIGNE");
 	}
 
 	if (piedDeBiche) {

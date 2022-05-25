@@ -25,7 +25,7 @@ void draw_perdu(unsigned int x, unsigned int y) {
 UINT8 state_perdu() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
 	text_print_string_win(1, 2, "CHERCHER LA SORTIE");
 

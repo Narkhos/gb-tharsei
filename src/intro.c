@@ -26,7 +26,7 @@ void draw_intro(unsigned int x, unsigned int y) {
 UINT8 state_intro() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
 	text_print_string_win(1, 2, "COMPTER MES ABATTIS");
 	text_print_string_win(1, 3, "INSPECTER LES LIEUX");

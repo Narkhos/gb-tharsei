@@ -24,9 +24,9 @@ void draw_force(unsigned int x, unsigned int y) {
 UINT8 state_force() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
-	text_print_string_win(1, 2, "SUITE");
+	text_print_string_win(1, 2, "m");
 
 	selected = draw_menu();
 

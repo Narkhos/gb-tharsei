@@ -1,6 +1,11 @@
 #include <stdbool.h>
 #include <gb/gb.h>
-// #include "music/hUGEDriver.h"
+#include "music/hUGEDriver.h"
+
+#include "gfx/title_tileset.h"
+#include "gfx/death_tileset.h"
+#include "gfx/victory_tileset.h"
+#include "gfx/defeat_tileset.h"
 
 #include "text.h"
 #include "menu.h"
@@ -15,8 +20,11 @@
 #include "foule.h"
 #include "perdu.h"
 #include "mort.h"
+#include "image_mort.h"
+#include "image_defeat.h"
 #include "epilogue.h"
 #include "the_end.h"
+#include "image_the_end.h"
 #include "controle.h"
 #include "erreur.h"
 #include "victoire.h"
@@ -30,13 +38,16 @@
 #include "bus.h"
 #include "force.h"
 
+// extern const hUGESong_t test;
+extern const hUGESong_t song;
+
 // Enable/Disable title music
-// void enableMusic(bool enable) {
-// 	hUGE_mute_channel(HT_CH1, enable);
-// 	hUGE_mute_channel(HT_CH2, enable);
-// 	hUGE_mute_channel(HT_CH3, enable);
-// 	hUGE_mute_channel(HT_CH4, enable);
-// }
+void enableMusic(bool enable) {
+	hUGE_mute_channel(HT_CH1, !enable);
+	hUGE_mute_channel(HT_CH2, !enable);
+	hUGE_mute_channel(HT_CH3, !enable);
+	hUGE_mute_channel(HT_CH4, !enable);
+}
 
 bool checkArcheologuePath() {
 	return archeologuePath[0] == currentPath[0]
@@ -120,12 +131,22 @@ void set_screen(UINT8 screen) {
 	switch(gameScreen) {
 		case SCREEN_TITLE:
 			SWITCH_ROM_MBC1(1);
-			// enableMusic(true);
+			// __critical {
+			// 	enableMusic(false);
+				// hUGE_init(&song);
+				enableMusic(true);
+			// }
+			set_bkg_data(0, TITLE_TILESET_TILE_COUNT, TITLE_TILESET);
 			draw_title(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(2);
 			break;
 		case SCREEN_CREDITS:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
+			// 	__critical {
+			// 	enableMusic(false);
+			// 	hUGE_init(&test);
+			// 	enableMusic(true);
+			// }
 			draw_credits(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
@@ -166,82 +187,100 @@ void set_screen(UINT8 screen) {
 			init_menu(entryCount);
 			break;
 		case SCREEN_VICTOIRE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_victoire(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_THE_END:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_the_end(x, y + Y_BUFFERS[y_buffer]);
+			init_menu(1);
+			break;
+		case SCREEN_IMAGE_THE_END:
+			SWITCH_ROM_MBC1(2);
+			set_bkg_data(0, VICTORY_TILESET_TILE_COUNT, VICTORY_TILESET);
+			draw_image_the_end(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(2);
 			break;
 		case SCREEN_PERDU:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(3);
 			draw_perdu(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_FOULE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(3);
 			draw_foule(x, y + Y_BUFFERS[y_buffer]);
-			init_menu(2);
+			init_menu(1);
 			break;
 		case SCREEN_MORT:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(3);
 			draw_mort(x, y + Y_BUFFERS[y_buffer]);
+			init_menu(1);
+			break;
+		case SCREEN_IMAGE_MORT:
+			SWITCH_ROM_MBC1(3);
+			set_bkg_data(0, DEATH_TILESET_TILE_COUNT, DEATH_TILESET);
+			draw_image_mort(x, y + Y_BUFFERS[y_buffer]);
+			init_menu(2);
+			break;
+		case SCREEN_IMAGE_DEFEAT:
+			SWITCH_ROM_MBC1(3);
+			set_bkg_data(0, DEFEAT_TILESET_TILE_COUNT, DEFEAT_TILESET);
+			draw_image_defeat(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(2);
 			break;
 		case SCREEN_EPILOGUE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(3);
 			draw_epilogue(x, y + Y_BUFFERS[y_buffer]);
-			init_menu(2);
+			init_menu(1);
 			break;
 		case SCREEN_ARCHEOLOGUE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_archeologue(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_CONTROLE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_controle(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(4);
 			break;
 		case SCREEN_ERREUR:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_erreur(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_REBROUSSER:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_rebrousser(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_LABYRINTHE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_labyrinthe(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(4);
 			break;
 		case SCREEN_EGOUTS_OK:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_egouts_ok(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(2);
 			break;
 		case SCREEN_EGOUTS_KO:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(2);
 			draw_egouts_ko(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_POLICE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(3);
 			draw_police(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_BUS:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(3);
 			draw_bus(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;
 		case SCREEN_FORCE:
-			SWITCH_ROM_MBC1(1);
+			SWITCH_ROM_MBC1(3);
 			draw_force(x, y + Y_BUFFERS[y_buffer]);
 			init_menu(1);
 			break;

@@ -5,8 +5,11 @@
 #include "title.h"
 #include "tools.h"
 
+#include "gfx/title_tilemap.h"
+#include "music/hUGEDriver.h"
+
 // DRAW TITLE
-void draw_title(unsigned int x, unsigned int y) {
+/*void draw_title(unsigned int x, unsigned int y) {
 	
 	text_print_string_bkg(x, y,      "                    ");
 	text_print_string_bkg(x, y +  1, "                    ");
@@ -20,6 +23,11 @@ void draw_title(unsigned int x, unsigned int y) {
 	text_print_string_bkg(x, y +  9, "   BY XAVIER DIREZ  ");
 	text_print_string_bkg(x, y + 10, "      2019-2022     ");
 	text_print_string_bkg(x, y + 11, "                    ");
+}*/
+
+// DRAW TITLE
+void draw_title(unsigned int x, unsigned int y) {
+	set_bkg_tiles(x, y, TITLE_TILEMAP_WIDTH, TITLE_TILEMAP_HEIGHT, TITLE_TILEMAP);
 }
 
 UINT8 state_title() {
@@ -34,7 +42,7 @@ UINT8 state_title() {
 
 	if (selected == 0) {
 		sound_OK();
-		// enableMusic(false);
+		enableMusic(false);
 		return SCREEN_INTRO;
 	}
 	if (selected == 1) {

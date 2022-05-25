@@ -25,7 +25,7 @@ void draw_inspecter(unsigned int x, unsigned int y) {
 UINT8 state_inspecter() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
 	text_print_string_win(1, 2, "PRENDRE LE         ");
 	text_print_string_win(1, 3, "      PIED-DE-BICHE");

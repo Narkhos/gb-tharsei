@@ -1,6 +1,6 @@
 #include <stdbool.h>
 #include <gb/gb.h>
-// #include "music/hUGEDriver.h"
+#include "music/hUGEDriver.h"
 
 #include "tools.h"
 #include "title.h"
@@ -13,8 +13,11 @@
 #include "perdu.h"
 #include "foule.h"
 #include "mort.h"
+#include "image_mort.h"
+#include "image_defeat.h"
 #include "epilogue.h"
 #include "the_end.h"
+#include "image_the_end.h"
 #include "victoire.h"
 #include "controle.h"
 #include "erreur.h"
@@ -30,20 +33,20 @@
 
 #include "text.h"
 
-// extern const hUGESong_t song;
+extern const hUGESong_t song;
 
 void main(void) {
 	
 	// Music init
-    // BGP_REG  = 0b11100100;
-    // NR52_REG = 0x80;
-    // NR51_REG = 0xFF;
-    // NR50_REG = 0x77;
+    BGP_REG  = 0b11100100;
+    NR52_REG = 0x80;
+    NR51_REG = 0xFF;
+    NR50_REG = 0x77;
 
-	// __critical {
-    //     hUGE_init(&song);
-    //     add_VBL(hUGE_dosound);
-    // }
+	__critical {
+        hUGE_init(&song);
+        add_VBL(hUGE_dosound);
+    }
 
 	// Graphics init
 	SPRITES_8x16;
@@ -106,14 +109,23 @@ void main(void) {
 			case SCREEN_FOULE:
 				newState = state_foule();
 				break;
+			case SCREEN_IMAGE_DEFEAT:
+				newState = state_image_defeat();
+				break;
 			case SCREEN_MORT:
 				newState = state_mort();
+				break;
+			case SCREEN_IMAGE_MORT:
+				newState = state_image_mort();
 				break;
 			case SCREEN_EPILOGUE:
 				newState = state_epilogue();
 				break;
 			case SCREEN_THE_END:
 				newState = state_the_end();
+				break;
+			case SCREEN_IMAGE_THE_END:
+				newState = state_image_the_end();
 				break;
 			case SCREEN_VICTOIRE:
 				newState = state_victoire();

@@ -26,7 +26,7 @@ void draw_abattis(unsigned int x, unsigned int y) {
 UINT8 state_abattis() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
 	text_print_string_win(1, 2, "EXAMINER LE CARNET");
 	// text_print_string_win(1, 3, "INSPECTER LES LIEUX");

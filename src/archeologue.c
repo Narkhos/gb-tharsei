@@ -24,7 +24,7 @@ void draw_archeologue(unsigned int x, unsigned int y) {
 UINT8 state_archeologue() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
 	text_print_string_win(1, 2, "REBROUSSER CHEMIN");
 

@@ -26,21 +26,15 @@ void draw_epilogue(unsigned int x, unsigned int y) {
 UINT8 state_epilogue() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
-	text_print_string_win(1, 2, "ReESSAYER");
-	text_print_string_win(1, 3, "QUITTER");
+	text_print_string_win(1, 2, "m");
 
 	selected = draw_menu();
 
 	if (selected == 0) {
 		sound_OK();
-		return SCREEN_INTRO;
-	}
-
-	if (selected == 1) {
-		sound_OK();
-		return SCREEN_TITLE;
+		return SCREEN_IMAGE_DEFEAT;
 	}
 		
 	return SCREEN_SAME;

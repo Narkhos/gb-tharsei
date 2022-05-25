@@ -43,16 +43,19 @@ extern bool checkControlePath();
 #define SCREEN_ERREUR 14
 #define SCREEN_VICTOIRE 15
 #define SCREEN_THE_END 16
-#define SCREEN_FOULE 17
-#define SCREEN_PERDU 18
-#define SCREEN_MORT 19
-#define SCREEN_EPILOGUE 20
-#define SCREEN_CREDITS 21
-#define SCREEN_POLICE 22
-#define SCREEN_BUS 23
-#define SCREEN_FORCE 24
+#define SCREEN_IMAGE_THE_END 17
+#define SCREEN_FOULE 18
+#define SCREEN_PERDU 19
+#define SCREEN_MORT 20
+#define SCREEN_IMAGE_MORT 21
+#define SCREEN_EPILOGUE 22
+#define SCREEN_CREDITS 23
+#define SCREEN_POLICE 24
+#define SCREEN_BUS 25
+#define SCREEN_FORCE 26
+#define SCREEN_IMAGE_DEFEAT 27
 
-// extern void enableMusic(bool enable);
+extern void enableMusic(bool enable);
 extern void print_separator();
 
 extern void clear_win();

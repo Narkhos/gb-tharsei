@@ -11,6 +11,12 @@
         "labyrinthe.h": "c",
         "erreur.h": "c",
         "credits.h": "c",
-        "force.h": "c"
+        "force.h": "c",
+        "text.h": "c",
+        "death_tileset.h": "c",
+        "victory_tilemap.h": "c",
+        "image_the_end.h": "c",
+        "image_defeat.h": "c",
+        "defeat_tilemap.h": "c"
     }
 }

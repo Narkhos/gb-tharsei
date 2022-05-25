@@ -25,21 +25,15 @@ void draw_the_end(unsigned int x, unsigned int y) {
 UINT8 state_the_end() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "QUE FAIRE ?");
+	// text_print_string_win(0, 1, "QUE FAIRE ?");
 
-	text_print_string_win(1, 2, "RECOMMENCER");
-	text_print_string_win(1, 3, "QUITTER");
+	text_print_string_win(1, 2, "m");
 
 	selected = draw_menu();
 
 	if (selected == 0) {
 		sound_OK();
-		return SCREEN_INTRO;
-	}
-
-	if (selected == 1) {
-		sound_OK();
-		return SCREEN_TITLE;
+		return SCREEN_IMAGE_THE_END;
 	}
 		
 	return SCREEN_SAME;
