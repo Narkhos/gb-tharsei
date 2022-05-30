@@ -16,8 +16,8 @@ void draw_intro(unsigned int x, unsigned int y) {
 	text_print_string_bkg(x, y +  4, "                    ");
 	text_print_string_bkg(x, y +  5, "sA M'APPRENDRA b    ");
 	text_print_string_bkg(x, y +  6, "ENQUgTER DANS LE    ");
-	text_print_string_bkg(x, y +  7, "QUARTIER LE PLUS    ");
-	text_print_string_bkg(x, y +  8, "MAL FAMe DE THARSeI!");
+	text_print_string_bkg(x, y +  7, "QUARTIER LE PLUS MAL");
+	text_print_string_bkg(x, y +  8, "FAMe DE THARSEII !  ");
 	text_print_string_bkg(x, y +  9, "                    ");
 	text_print_string_bkg(x, y + 10, "                    ");
 	text_print_string_bkg(x, y + 11, "                    ");

@@ -14,7 +14,7 @@ void draw_the_end(unsigned int x, unsigned int y) {
 	text_print_string_bkg(x, y +  3, "ARRIVA AU NIVEAU DE ");
 	text_print_string_bkg(x, y +  4, "LA VILLE. GRcCE AU  ");
 	text_print_string_bkg(x, y +  5, "DqME, ELLE CONTOURNA");
-	text_print_string_bkg(x, y +  6, "THARSeI.C'EST AINSI ");
+	text_print_string_bkg(x, y +  6, "THARSEII.C'EST AINSI");
 	text_print_string_bkg(x, y +  7, "QUE LA POPULATION   ");
 	text_print_string_bkg(x, y +  8, "FwT ePARGNeE D'UN   ");
 	text_print_string_bkg(x, y +  9, "DeSASTRE SANS       ");

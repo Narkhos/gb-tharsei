@@ -13,7 +13,7 @@
 	
 	text_print_string_bkg(x, y,      "                    ");
 	text_print_string_bkg(x, y +  1, "                    ");
-	text_print_string_bkg(x, y +  2, "       THARSeI      ");
+	text_print_string_bkg(x, y +  2, "      THARSEII      ");
 	text_print_string_bkg(x, y +  3, "                    ");
 	text_print_string_bkg(x, y +  4, "                    ");
 	text_print_string_bkg(x, y +  5, "                    ");

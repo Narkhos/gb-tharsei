@@ -4,7 +4,7 @@
 #define _DEFEAT_TILESET_H
 
 extern const UINT8 DEFEAT_TILESET[];
-#define DEFEAT_TILESET_TILE_COUNT 57
+#define DEFEAT_TILESET_TILE_COUNT 166
 
 
 #endif
