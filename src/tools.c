@@ -53,25 +53,24 @@ bool checkArcheologuePath() {
 	return archeologuePath[0] == currentPath[0]
 		&&  archeologuePath[1] == currentPath[1]
 		&&  archeologuePath[2] == currentPath[2]
-		&&  archeologuePath[3] == currentPath[3]
-		&&  archeologuePath[4] == currentPath[4];
+		&&  archeologuePath[3] == currentPath[3];
 }
 
 bool checkControlePath() {
 	return controlePath[0] == currentPath[0]
 		&&  controlePath[1] == currentPath[1]
 		&&  controlePath[2] == currentPath[2]
-		&&  controlePath[3] == currentPath[3]
-		&&  controlePath[4] == currentPath[4];
+		&&  controlePath[3] == currentPath[3];
 }
 
-const char archeologuePath[5] = {'N', 'O', 'O', 'S', 'E'};
-const char controlePath[5] = {'S', 'E', 'E', 'N', 'O'};
+const char archeologuePath[4] = {'S', 'E', 'E', 'N'};
+const char controlePath[4] = {'N', 'O', 'O', 'S'};
 const char directions[4] = {'N', 'S', 'E', 'O'};
 
-char currentPath[5] = {' ', ' ', ' ', ' ', ' '};
+char currentPath[4] = {' ', ' ', ' ', ' '};
 INT8 pathIndex = -1;
 
+bool english = true;
 bool carnet = false;
 bool piedDeBiche = false;
 
@@ -117,7 +116,6 @@ void init_game() {
 	currentPath[1] = ' ';
 	currentPath[2] = ' ';
 	currentPath[3] = ' ';
-	currentPath[4] = ' ';
 	pathIndex = -1;
 }
 
@@ -138,7 +136,7 @@ void set_screen(UINT8 screen) {
 			// }
 			set_bkg_data(0, TITLE_TILESET_TILE_COUNT, TITLE_TILESET);
 			draw_title(x, y + Y_BUFFERS[y_buffer]);
-			init_menu(2);
+			init_menu(3);
 			break;
 		case SCREEN_CREDITS:
 			SWITCH_ROM_MBC1(2);

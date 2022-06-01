@@ -15,7 +15,7 @@ void draw_carnet(unsigned int x, unsigned int y) {
 	text_print_string_bkg(x, y +  4, "PReCeDENT. ET LE    ");
 	text_print_string_bkg(x, y +  5, "PAPIER TROUVe b SON ");
 	text_print_string_bkg(x, y +  6, "HqTEL GRIFFONNe D'UN");
-	text_print_string_bkg(x, y +  7, "SIMPLE MOT:kNOOSEl. ");
+	text_print_string_bkg(x, y +  7, "SIMPLE MOT:kSEENl.  ");
 	text_print_string_bkg(x, y +  8, "                    ");
 	text_print_string_bkg(x, y +  9, "                    ");
 	text_print_string_bkg(x, y + 10, "                    ");

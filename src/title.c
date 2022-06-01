@@ -35,8 +35,15 @@ UINT8 state_title() {
 
 	// text_print_string_win(0, 1, "QUESTION");
 
-	text_print_string_win(1, 2, "COMMENCER");
-	text_print_string_win(1, 3, "b PROPOS");
+	if (english) {
+		text_print_string_win(1, 2, "START    ");
+		text_print_string_win(1, 3, "LANGUAGE:ENGLISH");
+		text_print_string_win(1, 4, "ABOUT   ");
+	} else {
+		text_print_string_win(1, 2, "COMMENCER");
+		text_print_string_win(1, 3, "LANGUE:FRANsAIS ");
+		text_print_string_win(1, 4, "b PROPOS");
+	}
 
 	selected = draw_menu();
 
@@ -46,6 +53,11 @@ UINT8 state_title() {
 		return SCREEN_INTRO;
 	}
 	if (selected == 1) {
+		sound_OK();
+		english = !english;
+		return SCREEN_SAME;
+	}
+	if (selected == 2) {
 		sound_OK();
 		return SCREEN_CREDITS;
 	}

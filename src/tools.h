@@ -16,12 +16,13 @@ extern char *itoa(UINT16 n, char *s, UINT8 length);
 
 // GAME STATE
 
+extern bool english;
 extern bool carnet;
 extern bool piedDeBiche;
-extern char currentPath[5];
+extern char currentPath[4];
 extern INT8 pathIndex;
-extern const char archeologuePath[5];
-extern const char controlePath[5];
+extern const char archeologuePath[4];
+extern const char controlePath[4];
 extern const char directions[4];
 extern bool checkArcheologuePath();
 extern bool checkControlePath();

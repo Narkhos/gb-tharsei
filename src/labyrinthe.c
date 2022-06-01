@@ -37,7 +37,7 @@ UINT8 state_labyrinthe() {
 		sound_OK();
 		pathIndex ++;
 		currentPath[pathIndex] = directions[selected];
-		if (pathIndex == 4 ) {
+		if (pathIndex == 3 ) {
 			if (checkArcheologuePath()) {
 				return SCREEN_ARCHEOLOGUE;
 			} else if (checkControlePath()) {
