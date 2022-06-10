@@ -17,10 +17,17 @@ void draw_image_mort(unsigned int x, unsigned int y) {
 UINT8 state_image_mort() {
 	INT8 selected = -1;
 	
-	text_print_string_win(0, 1, "GAME OVER");
+	if (english) {
+		text_print_string_win(0, 1, "GAME OVER");
 
-	text_print_string_win(1, 2, "ReESSAYER");
-	text_print_string_win(1, 3, "QUITTER");
+		text_print_string_win(1, 2, "RETRY");
+		text_print_string_win(1, 3, "QUIT");
+	} else {
+		text_print_string_win(0, 1, "eCHEC");
+
+		text_print_string_win(1, 2, "ReESSAYER");
+		text_print_string_win(1, 3, "QUITTER");
+	}
 
 	selected = draw_menu();
 
