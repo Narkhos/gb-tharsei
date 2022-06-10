@@ -17,6 +17,10 @@ https://github.com/gbdk-2020/gbdk-2020
 
 ```
 font_tilegen.bat
+death_tilegen.bat
+defeat_tilegen.bat
+title_tilegen.bat
+victory_tilegen.bat
 ```
 
 ## Compiling
